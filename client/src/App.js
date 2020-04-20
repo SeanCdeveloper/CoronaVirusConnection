@@ -5,6 +5,7 @@ import "./App.css";
 import NavTabs from './components/NavTabs/NavTabs';
 import LoginPage from './components/pages/LoginPage';
 import SignInPage from './components/pages/SignInPage';
+import MainPage from './components/pages/MainPage';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <NavTabs/>
         <Route exact path="/" component={LoginPage}/>
         <Route exact path="/signup" component={SignInPage}/>
+        <Route exact path="/main" component={MainPage}/>
       </div>
       </Router>
     );

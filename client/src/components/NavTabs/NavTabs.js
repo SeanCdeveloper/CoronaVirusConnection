@@ -17,6 +17,11 @@ const NavTabs = () => {
                     Sign In
                     </Link>
                 </li>
+                <li>
+                    <Link to="/main" className={location.pathname === "/main"}>
+                    Main Page
+                    </Link>
+                </li>
             </ul>
         </div>
     )
