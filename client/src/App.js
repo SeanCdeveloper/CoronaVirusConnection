@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
 // import LogInForm from './components/LogInForm';
 // import SignUpForm from './components/SignUpForm';
@@ -7,8 +7,7 @@ import LoginPage from './components/pages/LoginPage';
 import SignInPage from './components/pages/SignInPage';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <Router>
       <div className="App">
@@ -18,10 +17,6 @@ class App extends Component {
       </div>
       </Router>
     );
-  }
 }
 
 export default App;
-
-{/* <LogInForm/>
-        <SignUpForm/> */}
