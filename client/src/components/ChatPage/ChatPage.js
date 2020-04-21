@@ -2,35 +2,35 @@ import React, { useEffect, useState } from 'react';
 import API from "../../utils/API";
 
 const ChatPage = () => {
-    // const [message, setMessages] = useState([]);
+    const [messages, setMessages] = useState([]);
     const [formObject, setFormObject] = useState({});
 
     /* Load all messages to store inside `setMessage` */
 
-    // useEffect(() => {
-    //     loadMessages()
-    // }, {})
+    useEffect(() => {
+        loadMessages()
+    }, {})
 
     /* Load all messages and set them to `message` */
 
-    // const loadMessages = () => {
-    //     API.getMessages()
-    //     .then(res => setMessages(res.data))
-    //     .catch(err => console.log(err))
-    // }
+    const loadMessages = () => {
+        API.getMessages()
+        .then(res => setMessages(res.data))
+        .catch(err => console.log(err))
+    }
 
     /* Delete a `message` with given 'id', then reload Messages */
 
-    // deleteMessage = (id) => {
+    // const deleteMessage = (id) => {
     //     API.deleteMessage(id)
     //     .then(res => loadMessages())
     //     .catch(err => console.log(err));
     // }
 
-        function handleInputChange(event) {
+        const handleInputChange = (event) => {
             const { name, value } = event.target;
             setFormObject({...formObject, [name]: value})
-            // console.log(event.target);
+            console.log(event.target);
           };
 
     const handleFormSubmit = (event) => {
@@ -39,6 +39,7 @@ const ChatPage = () => {
         console.log(formObject.title);
         console.log(formObject.author);
         console.log(formObject.message);
+
         // if (formObject.title && formObject.author) {
         //     API.saveMessage({
         //         title: formObject.title,
@@ -47,7 +48,7 @@ const ChatPage = () => {
         //     })
         //     .then(res => loadMessages())
         //     .catch(err => console.log(err));
-    //     }
+        // }
     }
 
     return (
