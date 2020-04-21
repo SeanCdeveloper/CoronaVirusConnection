@@ -27,3 +27,5 @@ Use 'const [messages, setMessages]' in ChatPage.js
 'const [message, setMessage]' in Detail in Details.js
 
 */
+
+/* Random Message so I can push*/
