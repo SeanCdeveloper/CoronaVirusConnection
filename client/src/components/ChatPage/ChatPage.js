@@ -51,6 +51,7 @@ const ChatPage = () => {
             <h1>Title</h1>
             <div className="NewsAreaWrap">
                 <h1>News Area</h1>
+                <div style={{border: "1px solid black", height: "200px", margin: "0 100px 0 100px"}}className="newsWell"></div>
             </div>
             <div className="ChatAreaWrap">
                 <h1>Chat Area</h1>
