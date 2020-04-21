@@ -52,30 +52,35 @@ const ChatPage = () => {
             </div>
             <div className="ChatAreaWrap">
                 <h1>Chat Area</h1>
-                <div></div>
+                <div className="messageWell"></div>
                 <form>
                     <input
                         // onChange={handleInputChange}
                         name="title"
                         placeholder="Title"
+                        style={{width: "30em", height: "3em", marginTop: "1em"}}
                     />
                     <br/>
                     <input
                         // onChange={handleInputChange}
                         name="author"
                         placeholder="Author"
+                        style={{width: "30em", height: "3em", marginTop: "1em"}}
                     />
                     <br/>
                     <textarea
                         // onChange={handleInputChange}
                         name="message"
                         placeholder="Enter Message"
+                        style={{width: "30em", height: "6em", marginTop: "1em"}}
                     />
+                    <br/>
                     <button
                         // onClick={handleFormSubmit}
                         type="button"
+                        style={{width: "10em", height: "4em", marginTop: "1em"}}
                     >
-
+                        Submit
                     </button>
                 </form>
             </div>
