@@ -33,18 +33,22 @@ const ChatPage = () => {
             // console.log(event.target);
           };
 
-    // handleFormSubmit = (event) => {
-    //     event.preventDefault();
-    //     if (formObject.title && formObject.author) {
-    //         API.saveMessage({
-    //             title: formObject.title,
-    //             author: formObject.author,
-    //             message: formObject.message
-    //         })
-    //         .then(res => loadMessages())
-    //         .catch(err => console.log(err));
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        console.log(event.target);
+        console.log(formObject.title);
+        console.log(formObject.author);
+        console.log(formObject.message);
+        // if (formObject.title && formObject.author) {
+        //     API.saveMessage({
+        //         title: formObject.title,
+        //         author: formObject.author,
+        //         message: formObject.message
+        //     })
+        //     .then(res => loadMessages())
+        //     .catch(err => console.log(err));
     //     }
-    // }
+    }
 
     return (
         <div className="container">
@@ -79,7 +83,7 @@ const ChatPage = () => {
                     />
                     <br/>
                     <button
-                        // onClick={handleFormSubmit}
+                        onClick={handleFormSubmit}
                         type="button"
                         style={{width: "10em", height: "4em", marginTop: "1em"}}
                     >
