@@ -3,7 +3,7 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reactreadinglist"
+  "mongodb://localhost/ccmessagelist"
 );
 
 const messageSeed = [
@@ -95,7 +95,7 @@ const messageSeed = [
 
 db.Message
   .remove({})
-  .then(() => db.Message.collection.insertMany(bookSeed))
+  .then(() => db.Message.collection.insertMany(messageSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
