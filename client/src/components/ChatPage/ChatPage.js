@@ -27,11 +27,11 @@ const ChatPage = () => {
     //     .catch(err => console.log(err));
     // }
 
-    const handleInputChange = event => {
-        const {name, value} = event.target;
-        setFormObject({...formObject, [name]: value});
-
-    }
+        function handleInputChange(event) {
+            const { name, value } = event.target;
+            setFormObject({...formObject, [name]: value})
+            // console.log(event.target);
+          };
 
     // handleFormSubmit = (event) => {
     //     event.preventDefault();
