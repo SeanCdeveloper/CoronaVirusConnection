@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import API from "../../utils/API";
 
 const ChatPage = () => {
-    const [message, setMessage] = useState([]);
+    const [message, setMessages] = useState([]);
     const [formObject, setFormObject] = useState({});
 
     /* Load all messages to store inside `setMessage` */
 
-    // useEffect(() => {
-    //     loadMessages()
-    // }, {})
+    useEffect(() => {
+        loadMessages()
+    }, {})
 
     /* Load all messages and set them to `message` */
 
-    // loadMessages = () => {
-    //     API.getMessages()
-    //     .then(res => setMessages(res.data))
-    //     .catch(err => console.log(err))
-    // }
+    const loadMessages = () => {
+        API.getMessages()
+        .then(res => setMessages(res.data))
+        .catch(err => console.log(err))
+    }
 
     /* Delete a `message` with given 'id', then reload Messages */
 

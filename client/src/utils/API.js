@@ -19,7 +19,6 @@ export default {
   }
 };
 
-
 /* 
 
 Use 'const [messages, setMessages]' in ChatPage.js 
@@ -28,4 +27,3 @@ Use 'const [messages, setMessages]' in ChatPage.js
 
 */
 
-/* Random Message so I can push*/
