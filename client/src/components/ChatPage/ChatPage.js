@@ -31,7 +31,7 @@ const ChatPage = () => {
         setFormObject({...formObject, [name]: value});
     }
 
-    // handleFormSubmit = (event) {
+    // handleFormSubmit = (event) => {
     //     event.preventDefault();
     //     if (formObject.title && formObject.author) {
     //         API.saveBook({
