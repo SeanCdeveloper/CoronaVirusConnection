@@ -7,6 +7,7 @@ import LoginPage from './components/pages/LoginPage';
 import SignInPage from './components/pages/SignInPage';
 import MainPage from './components/pages/MainPage';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import Contactform from "./components/LogInForm/index";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path="/signup" component={SignInPage}/>
         <Route exact path="/main" component={MainPage}/>
       </div>
+      <Contactform/>
       </Router>
     );
 }
