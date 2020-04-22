@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import form from "semantic-ui-react";
 
 const LogInForm = () => {
 
