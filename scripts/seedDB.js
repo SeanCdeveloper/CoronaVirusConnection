@@ -8,87 +8,87 @@ mongoose.connect(
 
 const messageSeed = [
   {
-    title: "Hello",
-    author: "John",
+    title: "0100",
+    author: "Monica",
     message:
-      "Test1",
+      "Hey!! How are you guys doing during this quarantine??",
     date: new Date(Date.now())
   },
   {
-    title: "Chillin'",
-    author: "AJAX Johnson",
+    title: "0200",
+    author: "Brandon",
     message:
-      "Test 2",
+      "Stressed but luckily still working",
     date: new Date(Date.now())
   },
   {
-    title: "Should have done that",
-    author: "Dom Nodes",
+    title: "0300",
+    author: "Nikki",
     message:
-      "Test 3",
+      "Same.. working from home but glad to spend more time with my son",
     date: new Date(Date.now())
   },
   {
-    title: "Chillin",
-    author: "Captain Anonymous",
+    title: "0201",
+    author: "Brandon",
     message:
-      "Test 4",
+      "Awe man, I haven't seen the lil guy in soo long!",
     date: new Date(Date.now())
   },
   {
-    title: "Hello",
-    author: "Chillin B. Chill",
+    title: "0101",
+    author: "Monica",
     message:
-      "Test 5",
+      "Same here! How is the little guy?",
     date: new Date(Date.now())
   },
   {
-    title: "Goodbye",
-    author: "John React",
+    title: "0400",
+    author: "Colleen",
     message:
-    "Test 6",
+    "Hey guys, sorry was driving home from work",
     date: new Date(Date.now())
   },
   {
-    title: "CoronaQuiz",
-    author: "Randy UseState",
+    title: "0301",
+    author: "Nikki",
     message:
-    "Test 7",
+    "Hey Colleen!. My son is doing good, teaching him is the hardest thing ever thou",
     date: new Date(Date.now())
   },
   {
-    title: "Running",
-    author: "Cindy Stone",
+    title: "0203",
+    author: "Brandon",
     message:
-      "Test 8",
+      "Yea I bet! I don't remember nothing from school! Did you all see these news updates??",
     date: new Date(Date.now())
   },
   {
-    title: "What to Do?",
-    author: "Ezekiel Effect",
+    title: "0102",
+    author: "Monica",
     message:
-      "Test 9",
+      "Yea, I've been basically reading all the articles. I'm glad I'm informed all the time thou.",
     date: new Date(Date.now())
   },
   {
-    title: "What not to do",
-    author: "John Ross",
+    title: "0401",
+    author: "Colleen",
     message:
-    "Test 10",
+    "Oh yea I read most like Monica. I'm trying to stay ahead to make sure I'm safe.",
     date: new Date(Date.now())
   },
   {
-    title: "Anyone Around?",
-    author: "Ross Message",
+    title: "0302",
+    author: "Nikki",
     message:
-      "Test 11",
+      "The fact that I can talk to you all and keep an eye on the news all at the same time is a GAME CHANGER!",
     date: new Date(Date.now())
   },
   {
-    title: "Testing this out",
-    author: "Bob Henderson",
+    title: "0103",
+    author: "Monica",
     message:
-      "Test 12",
+      "Yessssss! This app is awesome and designed so elegantly. ",
     date: new Date(Date.now())
   },
 ];
