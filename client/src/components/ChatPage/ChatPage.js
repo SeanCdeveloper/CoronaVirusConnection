@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 
 const ChatPage = () => {
     const [messages, setMessages] = useState([]);
@@ -40,15 +41,15 @@ const ChatPage = () => {
         console.log(formObject.author);
         console.log(formObject.message);
 
-        // if (formObject.title && formObject.author) {
-        //     API.saveMessage({
-        //         title: formObject.title,
-        //         author: formObject.author,
-        //         message: formObject.message
-        //     })
-        //     .then(res => loadMessages())
-        //     .catch(err => console.log(err));
-        // }
+        if (formObject.title && formObject.author) {
+            API.saveMessage({
+                title: formObject.title,
+                author: formObject.author,
+                message: formObject.message
+            })
+            .then(res => loadMessages())
+            .catch(err => console.log(err));
+        }
     }
 
     return (
@@ -91,6 +92,22 @@ const ChatPage = () => {
                         Submit
                     </button>
                 </form>
+                <div className="col">
+                    {messages.length ? (
+                        <ul>
+                            {messages.map(message => (
+                                <li key={message._id}>
+                                    <Link to={"/messages/" + message._id}>
+                                        <strong>{message.title} by {message.author}</strong>
+                                    </Link>
+                                    <button></button>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                            <h3>No results</h3>
+                        )}
+                </div>
             </div>
         </div>
     )
