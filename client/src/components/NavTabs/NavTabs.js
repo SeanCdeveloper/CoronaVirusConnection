@@ -14,7 +14,7 @@ const NavTabs = () => {
                 </li>
                 <li>
                     <Link to="/signup" className={location.pathname === "/signup"}>
-                    Sign In
+                    Sign Up
                     </Link>
                 </li>
                 <li>
