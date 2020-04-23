@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Header, Button, Form } from 'semantic-ui-react'
+import { Container, Header, Button, Form } from 'semantic-ui-react'
 
 export default function LogInForm() {
     const [username, setUserName] = useState('');
@@ -11,7 +11,7 @@ export default function LogInForm() {
     };
 
   return (
-    <div className="Container">
+    <Container>
     <Header as='h1'>Login Page</Header>
     <Form onSubmit={handleFormSubmit}>
       <Form.Field>
@@ -31,7 +31,7 @@ export default function LogInForm() {
       </Form.Field>
       <Button type='submit'>Submit</Button>
     </Form>
-    </div>
+    </Container>
   )
 };
 
