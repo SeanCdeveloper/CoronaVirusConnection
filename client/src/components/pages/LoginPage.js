@@ -4,7 +4,7 @@ import LogInForm from '../LogInForm'
 const LoginPage = () => {
         return (
             <div>
-                <LogInForm/>
+                 <LogInForm/>
             </div>
         )
 }
