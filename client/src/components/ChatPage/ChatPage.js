@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
+import AppLogo from "../Logo/index";
 
 const ChatPage = () => {
     const [messages, setMessages] = useState([]);
@@ -54,6 +55,7 @@ const ChatPage = () => {
 
     return (
         <div className="container">
+            <AppLogo/>
             <h1>Title</h1>
             <div className="NewsAreaWrap">
                 <h1>News Area</h1>

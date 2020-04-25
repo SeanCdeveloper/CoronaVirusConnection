@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Header, Button, Form } from 'semantic-ui-react'
+import { Container, Header, Button, Form } from 'semantic-ui-react';
+import AppLogo from "../Logo/index";
 
 export default function LogInForm() {
     const [username, setUserName] = useState('');
@@ -12,6 +13,7 @@ export default function LogInForm() {
 
   return (
     <Container>
+      <AppLogo/>
     <Header as='h1'>Login Page</Header>
     <Form onSubmit={handleFormSubmit}>
       <Form.Field>
