@@ -3,11 +3,17 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import AppLogo from "../Logo/index";
 import { Container, Header, Grid, List, Button, Form, Input } from 'semantic-ui-react'
+import DataFetcher from '../DataFetcher/DataFetcher'
 
 
 export default function ChatPage() {
     const [messages, setMessages] = useState([]);
     const [formObject, setFormObject] = useState({});
+
+/* Added */
+    // useEffect(() => {
+    //  API.getNews()        
+    // },[])
 
     /* Load all messages to store inside `setMessage` */
 
@@ -117,3 +123,10 @@ export default function ChatPage() {
 }
 
 
+/* 
+Organize by ip address to location.
+How to find a person's IP address?
+Check to see how zip-code works, too. 
+Four different mini-rooms to go into and communicate. 
+
+*/ 
