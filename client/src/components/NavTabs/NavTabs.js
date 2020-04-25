@@ -10,17 +10,17 @@ const NavTabs = () => {
     return (
         <Container>
             <Menu>
-                <li>
+                <li style={{listStyle: "none", marginLeft: "1em"}}>
                     <Link to="/" className={location.pathname === "/"}>
                     Login
                     </Link>
                 </li>
-                <li>
+                <li style={{listStyle: "none", marginLeft:"2em"}}>
                     <Link to="/signup" className={location.pathname === "/signup"}>
                         Sign Up
                     </Link>
                 </li>
-                <li>
+                <li style={{listStyle: "none", marginLeft: "2em"}}>
                     <Link to="/main" className={location.pathname === "/main"}>
                         Main Page
                     </Link>
@@ -32,3 +32,18 @@ const NavTabs = () => {
 
 export default NavTabs;
 
+{/* <li style={{listStyle: "none", marginLeft: "1em"}}>
+<Link to="/" className={location.pathname === "/"}>
+Login
+</Link>
+</li>
+<li style={{listStyle: "none", marginLeft:"2em"}}>
+<Link to="/signup" className={location.pathname === "/signup"}>
+    Sign Up
+</Link>
+</li>
+<li style={{listStyle: "none", marginLeft: "2em"}}>
+<Link to="/main" className={location.pathname === "/main"}>
+    Main Page
+</Link>
+</li> */}
