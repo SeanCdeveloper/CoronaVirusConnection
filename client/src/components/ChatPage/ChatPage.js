@@ -57,6 +57,7 @@ export default function ChatPage() {
 
     return (
         <Container>
+            <AppLogo/>
             <Header as='h1'>Title</Header>
             <div className="NewsAreaWrap">
             <Header as='h1'>News Area</Header>
