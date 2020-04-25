@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Header, Container, Button, Form } from 'semantic-ui-react'
+import AppLogo from "../Logo/index";
 
 export default function SignUpForm() {
   const [username, setUserName] = useState('');
@@ -13,6 +13,7 @@ export default function SignUpForm() {
 
     return (
       <Container>
+        <AppLogo/>
         <Header as='h1'>Sign Up Page</Header>
         <Form onSubmit={handleFormSubmit}>
           <Form.Field>

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
+import AppLogo from "../Logo/index";
 import { Container, Header, Grid, List, Button, Form, Input } from 'semantic-ui-react'
+
 
 export default function ChatPage() {
     const [messages, setMessages] = useState([]);
