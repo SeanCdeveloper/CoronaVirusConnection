@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import AppLogo from "../Logo/index";
+import { Container, Header, Grid, List, Button, Form, Input } from 'semantic-ui-react'
 
-const ChatPage = () => {
+
+export default function ChatPage() {
     const [messages, setMessages] = useState([]);
     const [formObject, setFormObject] = useState({});
 
@@ -54,25 +56,24 @@ const ChatPage = () => {
     }
 
     return (
-        <div className="container">
-            <AppLogo/>
-            <h1>Title</h1>
+        <Container>
+            <Header as='h1'>Title</Header>
             <div className="NewsAreaWrap">
-                <h1>News Area</h1>
-                <div style={{border: "1px solid black", height: "200px", margin: "0 100px 0 100px"}}className="newsWell"></div>
+            <Header as='h1'>News Area</Header>
+                <Container fluid style={{border: "1px solid black", height: "200px", margin: "0 100px 0 100px"}}className="newsWell"></Container>
             </div>
             <div className="ChatAreaWrap">
-                <h1>Chat Area</h1>
+            <Header as='h1'>Chat Area</Header>
                 <div style={{border: "1px solid black", height: "200px", margin: "0 100px 0 100px"}}className="messageWell"></div>
-                <form>
-                    <input
+                <Form>
+                    <Input
                         onChange={handleInputChange}
                         name="title"
                         placeholder="Title"
                         style={{width: "30em", height: "3em", marginTop: "1em"}}
                     />
                     <br/>
-                    <input
+                    <Input
                         onChange={handleInputChange}
                         name="author"
                         placeholder="Author"
@@ -86,34 +87,33 @@ const ChatPage = () => {
                         style={{width: "30em", height: "6em", marginTop: "1em"}}
                     />
                     <br/>
-                    <button
+                    <Button
                         onClick={handleFormSubmit}
                         type="button"
                         style={{width: "10em", height: "4em", marginTop: "1em"}}
                     >
                         Submit
-                    </button>
-                </form>
-                <div className="col">
+                    </Button>
+                </Form>
+                <Grid.Column width={8}>
                     {messages.length ? (
-                        <ul>
+                        <List>
                             {messages.map(message => (
                                 <li key={message._id}>
                                     <Link to={"/messages/" + message._id}>
                                         <strong>{message.title} by {message.author}</strong>
                                     </Link>
-                                    <button></button>
+                                    <Button></Button>
                                 </li>
                             ))}
-                        </ul>
+                        </List>
                     ) : (
-                            <h3>No results</h3>
+                            <Header as='h3'>No results</Header>
                         )}
-                </div>
+                </Grid.Column>
             </div>
-        </div>
+        </Container>
     )
 }
 
-export default ChatPage;
 
