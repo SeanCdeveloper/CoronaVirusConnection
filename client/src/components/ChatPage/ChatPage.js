@@ -2,31 +2,59 @@ import React, { useEffect, useState } from 'react';
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import AppLogo from "../Logo/index";
-import { Container, Header, Grid, List, Button, Form, Input } from 'semantic-ui-react'
-import DataFetcher from '../DataFetcher/DataFetcher'
-
+import { Container, Header, Grid, List, Button, Form, Input, Item } from 'semantic-ui-react'
+// import DataFetcher from '../DataFetcher/DataFetcher'
+import axios from 'axios';
 
 export default function ChatPage() {
     const [messages, setMessages] = useState([]);
     const [formObject, setFormObject] = useState({});
+    const [news, setNews] = useState([]);
 
-/* Added */
-    // useEffect(() => {
-    //  API.getNews()        
-    // },[])
+    // useEffect(async() => {
+    //     const response = await fetch('http://newsapi.org/v2/everything?q=coronavirus&apiKey=3cb25d8241014e44a94861a91d73f1f4');
+    //     const data = await response.json();
+    //     const {articles} = data;
+    //     console.log(articles);
+    //     // console.log("old",data);
+    //     // console.log(data.articles);
+    //         // .then((data) => {
+    //         //     console.log("new",data)
+    //         // });
+    //     // const [item] = data.results;
+    //     // setNews(item);
+    // }, [])
+
+    useEffect(() => {
+        // const response = await fetch('http://newsapi.org/v2/everything?q=coronavirus&apiKey=3cb25d8241014e44a94861a91d73f1f4');
+        // const data = await response.json();
+        // console.log("old",data);
+        // console.log(data.articles);
+        getNews()        
+    }, [])
+
+    const getNews = () => {
+        axios.get("http://newsapi.org/v2/everything?q=coronavirus&apiKey=3cb25d8241014e44a94861a91d73f1f4")
+        .then(data => {
+        // console.log(data.data.articles);
+        const {articles} = data.data;
+        setNews(articles);
+        })
+        .catch(err => console.log(err));
+    }
 
     /* Load all messages to store inside `setMessage` */
 
-    useEffect(() => {
-        loadMessages()
-    }, {})
+    // useEffect(() => {
+    //     loadMessages()
+    // }, {})
 
     /* Load all messages and set them to `message` */
 
     const loadMessages = () => {
         API.getMessages()
-        .then(res => setMessages(res.data))
-        .catch(err => console.log(err))
+            .then(res => setMessages(res.data))
+            .catch(err => console.log(err))
     }
 
     /* Delete a `message` with given 'id', then reload Messages */
@@ -37,11 +65,11 @@ export default function ChatPage() {
     //     .catch(err => console.log(err));
     // }
 
-        const handleInputChange = (event) => {
-            const { name, value } = event.target;
-            setFormObject({...formObject, [name]: value})
-            console.log(event.target);
-          };
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormObject({ ...formObject, [name]: value })
+        console.log(event.target);
+    };
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -56,8 +84,8 @@ export default function ChatPage() {
                 author: formObject.author,
                 message: formObject.message
             })
-            .then(res => loadMessages())
-            .catch(err => console.log(err));
+                .then(res => loadMessages())
+                .catch(err => console.log(err));
         }
     }
 
@@ -67,7 +95,19 @@ export default function ChatPage() {
             <Header as='h1'>Title</Header>
             <div className="NewsAreaWrap">
             <Header as='h1'>News Area</Header>
-                <Container fluid style={{border: "1px solid black", height: "200px", margin: "0 100px 0 100px"}}className="newsWell"></Container>
+
+                <Container fluid style={{border: "1px solid black", height: "200px", margin: "0 100px 0 100px"}}className="newsWell">
+                {
+                    news.map(news => (
+                        <div key={news.id}>
+                            <h2>{news.title}</h2>
+                            <p>{news.author}</p>
+                            <p>{news.content}</p>
+                            <a href={news.url}>Read Article</a>
+                        </div>
+                    )
+                )}
+                </Container>
             </div>
             <div className="ChatAreaWrap">
             <Header as='h1'>Chat Area</Header>
@@ -124,10 +164,11 @@ export default function ChatPage() {
 }
 
 
-/* 
+/*
+
 Organize by ip address to location.
 How to find a person's IP address?
-Check to see how zip-code works, too. 
-Four different mini-rooms to go into and communicate. 
+Check to see how zip-code works, too.
+Four different mini-rooms to go into and communicate.
 
-*/ 
+*/

@@ -18,7 +18,7 @@ export default function SignUpForm() {
         <Form onSubmit={handleFormSubmit}>
           <Form.Field>
             <label>Username</label>
-            <input style={{ marginTop: "150px", height: "40px", width: "50em" }}
+            <input style={{ marginTop: "125px", height: "40px", width: "50em" }}
               type="text"
               name="username"
               onChange={(event) => setUserName(event.target.value)} />
