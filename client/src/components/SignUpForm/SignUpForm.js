@@ -36,7 +36,7 @@ export default function SignUpForm() {
           <Button type='submit'>Sign Up</Button>
           </Link>
         </Form>
-        <Link to="/">Need To Login Instead?</Link>
+        <Link to="/">Need To Login, Instead?</Link>
       </Container>
     )
   };
