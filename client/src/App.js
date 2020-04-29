@@ -1,26 +1,36 @@
-import React from "react";
-import "./App.css";
-// import LogInForm from './components/LogInForm';
-// import SignUpForm from './components/SignUpForm';
-import NavTabs from './components/NavTabs/NavTabs';
-import LoginPage from './components/pages/LoginPage';
-import SignInPage from './components/pages/SignInPage';
-import MainPage from './components/pages/MainPage';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import logo from "./components/Logo";
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Join from './components/Join/Join'
+import Chat from './components/Chat/Chat'
+import LoginPage from './components/Pages/LoginPage';
+import SignUpPage from './components/Pages/SignUpPage';
 
-const App = () => {
-    return (
-      <Router>
-      <div className="App">
-        <logo></logo>
-        <NavTabs/>
-        <Route exact path="/" component={LoginPage}/>
-        <Route exact path="/signup" component={SignInPage}/>
-        <Route exact path="/main" component={MainPage}/>
-      </div>
-      </Router>
-    );
-}
+const App = () => (
+    <Router>
+        <Route exact path="/" component={LoginPage} />
+        <Route exact path="/signup" component={SignUpPage} />
+        <Route path="/join" exact component={Join} />
+        <Route path="/chat" exact component={Chat} />
+    </Router>
+)
 
 export default App;
+
+
+// import React from 'react';
+// import {BrowserRouter as Router, Route} from 'react-router-dom';
+// import Join from './components/Join/Join'
+// import Chat from './components/Chat/Chat'
+// import LoginPage from './components/Pages/LoginPage';
+// import SignUpPage from './components/Pages/SignUpPage';
+
+// const App = () => (
+//     <Router>
+//         <Route path="/" exact component={Join}/>
+//         <Route path="/chat" exact component={Chat}/>
+//         <Route exact path="/login" component={LoginPage}/>
+//         <Route exact path="/signup" component={SignUpPage}/>
+//     </Router>
+// )
+
+// export default App;
