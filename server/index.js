@@ -6,6 +6,10 @@ const router = require('./router');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const routes = require("./routes");
+const dbConnection = require('./db');
 
 const {addUser,removeUser,getUser,getUsersInRoom} = require('./users/users'); 
 
@@ -55,6 +59,39 @@ io.on('connection', (socket) => {
         }
     })
 })
+
+// Define middleware here
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false
+//   })
+// )
+
+// passport session called here
+
+app.use(
+    session({
+      secret: process.env.APP_SECRET || 'this is the default passphrase',
+      store: new MongoStore({ mongooseConnection: dbConnection }),
+      resave: false,
+      saveUninitialized: false
+    })
+  )
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+  }
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coronaconnection2");
+
+// Add routes, both API and view
+app.use(routes); 
 
 app.use(router);
 
