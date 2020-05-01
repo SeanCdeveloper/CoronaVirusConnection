@@ -89,6 +89,12 @@ if (process.env.NODE_ENV === "production") {
 app.use(passport.initialize())
 app.use(passport.session())
 
+//this is what I that i was working on that isnt on this file for passport. -Adrian
+// app.use(require('serve-static')(__dirname + '/../../public'));
+// app.use(require('cookie-parser')());
+// app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+
+
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coronaconnection2");
 
