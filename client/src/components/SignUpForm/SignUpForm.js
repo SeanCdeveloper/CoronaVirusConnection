@@ -44,3 +44,25 @@ export default function SignUpForm() {
   /* <Button/> '/' changed from '/login' to '/' */
 
   /* <Link/> goes to '/' instead of '/login'.  */
+
+
+  //Below is what I had when i was trying to make a call to the api with signup -Adrian
+//   const handleFormSubmit = e => {
+//     e.preventDefault();  
+//     console.log("Username is: " + username + ", and " + "Password is: " + password)
+//     axios({
+//       method: 'POST',
+//       url: 'https://localhost:3001/users',
+//       headers: {
+//         "Access-Control-Allow-Origin": "*",
+//         "Content-Type": "application/json",
+//       },
+//       data: {
+//         username: username,
+//         password: password
+//       }
+//     }). then(function (response) {
+//       console.log(response.data);
+//       console.log("Test1",response)
+//     }).catch(err => console.log(err));
+// };
