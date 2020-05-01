@@ -9,7 +9,7 @@ function APIcall() {
   useEffect(() => {
     getNews()
   }, [])
-
+/* Make it a get('/news') */ 
   const getNews = () => {
     axios.get("http://newsapi.org/v2/everything?q=coronavirus&apiKey=3cb25d8241014e44a94861a91d73f1f4")
       .then(data => {

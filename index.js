@@ -8,8 +8,10 @@ const server = http.createServer(app);
 const io = socketio(server);
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const routes = require("./routes");
+// const routes = require("./routes");
 const dbConnection = require('./db');
+const passport = require("passport");
+const mongoose = require("mongoose");
 
 const {addUser,removeUser,getUser,getUsersInRoom} = require('./users/users'); 
 
@@ -91,7 +93,7 @@ app.use(passport.session())
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coronaconnection2");
 
 // Add routes, both API and view
-app.use(routes); 
+// app.use(routes); 
 
 app.use(router);
 
