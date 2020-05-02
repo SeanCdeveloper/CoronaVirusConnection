@@ -12,6 +12,7 @@ const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db');
 const passport = require("passport");
 const mongoose = require("mongoose");
+require('dotenv').config();
 
 const {addUser,removeUser,getUser,getUsersInRoom} = require('./users/users'); 
 

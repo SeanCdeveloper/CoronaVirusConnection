@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { Container, Header} from 'semantic-ui-react'
 import axios from 'axios';
+require('dotenv').config();
+
 
 function APIcall() {
   const [news, setNews] = useState([]);
@@ -10,12 +12,13 @@ function APIcall() {
     getNews()
   }, [])
 /* Make it a get('/news') */ 
+  const apikey = process.env.API_KEY
   const getNews = () => {
-    axios.get("http://newsapi.org/v2/everything?q=coronavirus&apiKey=3cb25d8241014e44a94861a91d73f1f4")
+    axios.get("/news")
       .then(data => {
-        // console.log(data.data.articles);
-        const { articles } = data.data;
-        setNews(articles);
+        console.log(" news ", data);
+        // const { articles } = data.data;
+        setNews(data.data);
       })
       .catch(err => console.log(err));
   }

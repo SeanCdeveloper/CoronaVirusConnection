@@ -1,10 +1,31 @@
 const express = require('express');
 const router = express.Router();
+const axios = require("axios");
+const passport = require("passport");
+require('dotenv').config();
 
-router.get("/", (req,res) => {
+
+router.get("/", (req, res) => {
     // res.send({response: "Server is up and running"}).status(200);
     res.send("Server is up and running");
 })
+router.get("/news", (req, res) => {
+    axios.get("http://newsapi.org/v2/everything?q=coronavirus&apiKey=" + process.env.API_KEY)
+        .then(data => {
+            res.send(data.data.articles);
+            //   const { articles } = data.data;
+            //   setNews(articles);
+        })
+        .catch(err => console.log(err));
+
+})
+
+router.post('/login',
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    function (req, res) {
+        console.log("passport");
+        res.redirect('/');
+    });
 
 module.exports = router;
 
@@ -37,7 +58,7 @@ module.exports = router;
 //   passport.serializeUser(function(user, done) {
 //     done(null, user.id);
 //   });
-   
+
 //   passport.deserializeUser(function(id, done) {
 //     User.findById(id, function (err, user) {
 //       done(err, user);
