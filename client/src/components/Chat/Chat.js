@@ -16,7 +16,6 @@ const Chat = ({location}) => {
     /* All messages will be stored in the array below, containing all the messages in `state`. */
     const [messages, setMessages] = useState([]);
     
-    debugger;
     const origin = window.location.origin;
     const ENDPOINT = origin === 'http://localhost:3000' ? 'localhost:3001' : origin;
     
