@@ -16,6 +16,11 @@ const Chat = ({location}) => {
     /* All messages will be stored in the array below, containing all the messages in `state`. */
     const [messages, setMessages] = useState([]);
     
+    /* Super hacky way to route socket messages 
+       to the correct destination whether in production 
+       or development mode. Will break locally if the 
+       port numbers change, so leave them as 3000 & 3001
+    */
     const origin = window.location.origin;
     const ENDPOINT = origin === 'http://localhost:3000' ? 'localhost:3001' : origin;
     
