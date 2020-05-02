@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import Logo from "../../images/cclogo.png";
-// import axios from 'axios';
+import axios from 'axios';
+
 
 export default function LogInForm() {
     // const [username, setUserName] = useState('');
@@ -29,7 +30,10 @@ export default function LogInForm() {
       console.log("------>",email,password);
       const signInData = {email, password};
       console.log(signInData);
-      // axios.post('http://localhost:3000/api/login', {signInData})
+      axios.post('/login', {signInData}).then(data => {
+        console.log(data);
+      }).catch(err => console.log(err))
+      
     }
 // axios.post('http://localhost:3001/api/signup', {email,password});
   return (
@@ -52,9 +56,9 @@ export default function LogInForm() {
                 onChange={(event) => setPassword(event.target.value)}
                 />
       </Form.Field>
-      <Link to="/join">
+      {/* <Link to="/join"> */}
       <Button type='submit'>Login</Button>
-      </Link>
+      {/* </Link> */}
       <Link to="/">Need to Sign-Up?</Link>
     </Form>
     </Container>
