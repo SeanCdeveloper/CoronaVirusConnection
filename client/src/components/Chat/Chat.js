@@ -15,9 +15,10 @@ const Chat = ({location}) => {
     const [message, setMessage] = useState('');
     /* All messages will be stored in the array below, containing all the messages in `state`. */
     const [messages, setMessages] = useState([]);
- 
-    const ENDPOINT = 'localhost:3001';
-
+    
+    const origin = window.location.origin;
+    const ENDPOINT = origin === 'http://localhost:3000' ? 'localhost:3001' : origin;
+    
     useEffect(() => {
         const {name, room} = queryString.parse(location.search);
 
