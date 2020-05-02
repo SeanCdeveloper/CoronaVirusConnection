@@ -2,16 +2,36 @@ import React, { useState } from 'react';
 import { Container, Header, Button, Form } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 // import AppLogo from "../Logo/index";
+// import axios from 'axios';
 
 export default function LogInForm() {
-    const [username, setUserName] = useState('');
+    // const [username, setUserName] = useState('');
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
+
+    // const [formObject, setFormObject] = useState({});
 
     const handleFormSubmit = e => {
         e.preventDefault();  
-        console.log("Username is: " + username + ", and " + "Password is: " + password)
+        // console.log("Username is: " + username + ", and " + "Password is: " + password)
+        var userData = {
+          email, 
+          password
+        }
+        // console.log('++++++',userData);
+        if (!userData.email || !userData.password) {
+          return;
+        }
+        signUpUser(userData.email, userData.password);
     };
 
+     const signUpUser = () =>  {
+      console.log("------>",email,password);
+      const signInData = {email, password};
+      console.log(signInData);
+      // axios.post('http://localhost:3000/api/login', {signInData})
+    }
+// axios.post('http://localhost:3001/api/signup', {email,password});
   return (
     <Container>
       {/* <AppLogo/> */}
@@ -22,7 +42,7 @@ export default function LogInForm() {
         <input style={{ marginTop: "125px", height: "40px", width: "50em" }}
                 type="text"
                 name="username"
-                onChange={(event) => setUserName(event.target.value)} />
+                onChange={(event) => setEmail(event.target.value)} />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
@@ -68,62 +88,45 @@ export default function LogInForm() {
 //     setLogInInfo({...login, [name]: value})
 // }
 
+// import React, { useState } from 'react';
+// import { Container, Header, Button, Form } from 'semantic-ui-react';
+// import {Link} from 'react-router-dom';
+// // import AppLogo from "../Logo/index";
 
-// import React, { useState } from "react";
-// import Container from "../../components/Container";
-// import Col from "../../components/Col";
-// import Row from "../../components/Row";
+// export default function LogInForm() {
+//     const [username, setUserName] = useState('');
+//     const [password, setPassword] = useState('');
 
-// const Signup = () => {
-//   const [username, setUsername] = useState();
-//   const [password, setPassword] = useState();
-
-//   const handleSubmit = e => {
-//     e.preventDefault();
-//     console.log("username is " + username);
-//     console.log("password is " + password);
-//   };
+//     const handleFormSubmit = e => {
+//         e.preventDefault();  
+//         console.log("Username is: " + username + ", and " + "Password is: " + password)
+//     };
 
 //   return (
-//     <div>
-//       <div className="mt-4">
-//         <h2>Welcome to Wikipedia Searcher!</h2>
-//       </div>
-//       <form onSubmit={handleSubmit}>
-//         <Container className="mt-3 px-5">
-//           <Row className="form-group">
-//             <Col size="12">
-//               <input
-//                 className="form-control"
+//     <Container>
+//       {/* <AppLogo/> */}
+//     <Header as='h1'>Login Page</Header>
+//     <Form onSubmit={handleFormSubmit}>
+//       <Form.Field>
+//         <label>Username</label>
+//         <input style={{ marginTop: "125px", height: "40px", width: "50em" }}
 //                 type="text"
-//                 placeholder="Username"
 //                 name="username"
-//                 onChange={e => setUsername(e.target.value)}
-//               />
-//             </Col>
-//           </Row>
-//           <Row className="form-group">
-//             <Col size="12">
-//               <input
-//                 className="form-control"
+//                 onChange={(event) => setUserName(event.target.value)} />
+//       </Form.Field>
+//       <Form.Field>
+//         <label>Password</label>
+//         <input style={{ marginTop: "30px", height: "40px", width: "50em" }}
 //                 type="password"
-//                 placeholder="Password"
 //                 name="password"
-//                 onChange={e => setPassword(e.target.value)}
-//               />
-//             </Col>
-//           </Row>
-//           <button className="btn btn-success" type="submit">
-//             Submit
-//           </button>
-//         </Container>
-//         <Container className="mt-4">
-//           <h3>Hello {username}!</h3>
-//           <p>I probably shouldn't tell you this, but your password is {password}!</p>
-//         </Container>
-//       </form>
-//     </div>
-//   );
+//                 onChange={(event) => setPassword(event.target.value)}
+//                 />
+//       </Form.Field>
+//       <Link to="/join">
+//       <Button type='submit'>Login</Button>
+//       </Link>
+//       <Link to="/signup">Need to Sign-Up?</Link>
+//     </Form>
+//     </Container>
+//   )
 // };
-
-// export default Signup;
