@@ -37,16 +37,17 @@ export default function LogInForm() {
      <Image src={Logo} centered/>
     <Header as='h1'>Login Page</Header>
     <Form onSubmit={handleFormSubmit}>
+    {/* <Form.Group widths='equal'> */}
       <Form.Field>
         <label>Username</label>
-        <input style={{ marginTop: "125px", height: "40px", width: "50em" }}
+        <input
                 type="text"
                 name="username"
                 onChange={(event) => setEmail(event.target.value)} />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
-        <input style={{ marginTop: "30px", height: "40px", width: "50em" }}
+        <input 
                 type="password"
                 name="password"
                 onChange={(event) => setPassword(event.target.value)}

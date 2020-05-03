@@ -37,20 +37,20 @@ export default function LogInForm() {
     }
 // axios.post('http://localhost:3001/api/signup', {email,password});
   return (
-    <Container>
-      <Image src={Logo} centered/>
+    <Container centered>
+     <Image src={Logo} centered/>
     <Header as='h1'>Sign-in Page</Header>
     <Form onSubmit={handleFormSubmit}>
       <Form.Field>
         <label>Username</label>
-        <input style={{ marginTop: "125px", height: "40px", width: "50em" }}
+        <input
                 type="text"
                 name="username"
                 onChange={(event) => setEmail(event.target.value)} />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
-        <input style={{ marginTop: "30px", height: "40px", width: "50em" }}
+        <input 
                 type="password"
                 name="password"
                 onChange={(event) => setPassword(event.target.value)}
