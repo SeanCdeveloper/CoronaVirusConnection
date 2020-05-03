@@ -4,7 +4,8 @@ import io from 'socket.io-client';
 import InfoBar from '../InfoBar/InfoBar'
 import Input from '../Input/Input'
 import Messages from '../Messages/Messages'
-import './Chat.css'
+// import './Chat.css'
+import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 
 let socket;
 
