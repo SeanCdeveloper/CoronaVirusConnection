@@ -1,7 +1,7 @@
  import React from 'react';
  import { useHistory } from "react-router-dom";
-
  import './InfoBar.css'
+ import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 
 const InfoBar = ({room}) => {
     let history = useHistory();
@@ -11,18 +11,18 @@ const InfoBar = ({room}) => {
     }
 
     return (
-        <div className="infoBar">
-            <div className="leftInnerContainer">
+        <Container className="infoBar">
+            <Container className="leftInnerContainer">
                 {/* <img className='onlineIcon' src={onlineIcon} alt='online image'/> */}
-             <h3>{room}</h3>
-            </div>
-            <div className='rightInnerContainer'>
+             <Header as="h3">{room}</Header>
+            </Container>
+            <Container className='rightInnerContainer'>
                 <a onClick={handleClick}>
                     {/* <img src={closeIcon} alt='close icon'/> */}
                     Leave Chat
                 </a>
-            </div>
-        </div>
+            </Container>
+        </Container>
     )
     }
 export default InfoBar;

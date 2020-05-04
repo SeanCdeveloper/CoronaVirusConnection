@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import Logo from "../../images/cclogo.png";
 import axios from 'axios';
+import "./LogInForm.css"
 import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 
 
@@ -54,7 +55,7 @@ export default function LogInForm() {
                 />
       </Form.Field>
       <Link to="/join">
-      <Button type='submit'>Login</Button>
+      <Button className="button" type='submit' color='green' content='Green'>Login</Button>
       </Link>
       <Link to="/signup">Need to Sign-Up?</Link>
     </Form>

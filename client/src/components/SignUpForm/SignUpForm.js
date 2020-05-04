@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import Logo from "../../images/cclogo.png";
 import axios from 'axios';
+import "./SignUpForm.css";
 import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
+
 
 export default function LogInForm() {
     // const [username, setUserName] = useState('');
@@ -38,7 +40,7 @@ export default function LogInForm() {
   return (
     <Container centered>
      <Image src={Logo} centered/>
-    <Header as='h1'>Sign Up Page</Header>
+    <Header as='h1'>Sign-in Page</Header>
     <Form onSubmit={handleFormSubmit}>
       <Form.Field>
         <label>Username</label>
@@ -55,7 +57,9 @@ export default function LogInForm() {
                 onChange={(event) => setPassword(event.target.value)}
                 />
       </Form.Field>
-      <Button type='submit'>Sign up</Button>
+      {/* <Link to="/join"> */}
+      <Button className="button" type='submit' color='green' content='Green'>Sign up</Button>
+      {/* </Link> */}
       <Link to="/">Need to Login?</Link>
     </Form>
     </Container>
