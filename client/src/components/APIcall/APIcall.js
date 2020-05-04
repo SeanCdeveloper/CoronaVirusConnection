@@ -27,7 +27,7 @@ function APIcall() {
       <Header as='h1' style={{textDecoration: "underline"}}>Current News</Header>
       <div className="NewsAreaWrap"></div>
 
-      <Container fluid className="newsWell">
+      <div fluid className="newsWell">
         {
           news.map((news,i) => (
             <div key={i}>
@@ -39,7 +39,7 @@ function APIcall() {
           )
           )}
         <Link to='/join'>Go back to Chat</Link>
-      </Container>
+      </div>
     </Container>
   );
 }
