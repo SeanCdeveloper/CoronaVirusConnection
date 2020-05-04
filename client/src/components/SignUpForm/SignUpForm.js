@@ -38,7 +38,11 @@ export default function LogInForm() {
   return (
     <Container centered>
      <Image src={Logo} centered/>
+
     <Header as='h1'>Sign Up Page</Header>
+
+    <Header as='h1'>Sign-in Page</Header>
+
     <Form onSubmit={handleFormSubmit}>
       <Form.Field>
         <label>Username</label>

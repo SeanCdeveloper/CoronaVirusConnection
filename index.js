@@ -14,53 +14,53 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 require('dotenv').config();
 
-const {addUser,removeUser,getUser,getUsersInRoom} = require('./users/users'); 
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./users/users');
 
 io.on('connection', (socket) => {
-    // console.log('We have a new connection.');
+  // console.log('We have a new connection.');
 
-    socket.on('join', ({name,room}, callback) => {
-        // console.log(name,room);
-        const {error,user} = addUser({id: socket.id, name, room});
-        if(error) return callback(error);
+  socket.on('join', ({ name, room }, callback) => {
+    // console.log(name,room);
+    const { error, user } = addUser({ id: socket.id, name, room });
+    if (error) return callback(error);
 
-        socket.join(user.room);
+    socket.join(user.room);
 
-        /* Welcome Message for the User.   */
-        socket.emit('message', {user:'admin', text: `${user.name}, Welcome to Room ${user.room}`});
+    /* Welcome Message for the User.   */
+    socket.emit('message', { user: 'admin', text: `${user.name}, Welcome to Room ${user.room}` });
 
-        /* 'broadcast' sends a message to everyone except the specific user. We can send a message to specific room inside this code (we are sending the messages to a specific room and not all chats). 
-        The specific room sent to is {user.room}.
-        '.emit' sends the same message as 'socket.emit', and the payload is 
-        */
-        socket.broadcast.to(user.room).emit('message', {user: 'admin', text: `${user.name} has joined.`})
+    /* 'broadcast' sends a message to everyone except the specific user. We can send a message to specific room inside this code (we are sending the messages to a specific room and not all chats). 
+    The specific room sent to is {user.room}.
+    '.emit' sends the same message as 'socket.emit', and the payload is 
+    */
+    socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined.` })
 
-        // io.to(user.room).emit('roomData', {room: user.room, users: getUsersInRoom(users.room)})
+    // io.to(user.room).emit('roomData', {room: user.room, users: getUsersInRoom(users.room)})
 
-        callback();
-    });
+    callback();
+  });
 
-    /* Events for user-generated messages.  The user-generated messages are called 'sendMessage'; the 'admin-generated messages' are called 'messages'. 
-    We are sending the message to {user.room}, or the room the user is currently in. 
-    The 'message' value for 'text' is coming from front-end code.  
-    */ 
-    socket.on('sendMessage', (message, callback) => {
-        const user = getUser(socket.id);
-        io.to(user.room).emit('message', {user: user.name, text: message});
-        // io.to(user.room).emit('roomData', {room: user.room, users: getUsersInRoom(users.room)});
-        callback();
-    })
+  /* Events for user-generated messages.  The user-generated messages are called 'sendMessage'; the 'admin-generated messages' are called 'messages'. 
+  We are sending the message to {user.room}, or the room the user is currently in. 
+  The 'message' value for 'text' is coming from front-end code.  
+  */
+  socket.on('sendMessage', (message, callback) => {
+    const user = getUser(socket.id);
+    io.to(user.room).emit('message', { user: user.name, text: message });
+    // io.to(user.room).emit('roomData', {room: user.room, users: getUsersInRoom(users.room)});
+    callback();
+  })
 
-    socket.on('disconnect', () => {
-        console.log("User has left.");
-         const user = removeUser(socket.id);
+  socket.on('disconnect', () => {
+    console.log("User has left.");
+    const user = removeUser(socket.id);
 
-        if(user) {
-            io.to(user.room).emit('message', {user: 'admin', text: `${user.name} has left`})
-            /* Sending a message when a user leaves a room. */
-            io.to(user.room).emit('roomData', {room: user.room, users: getUsersInRoom(user.room)});
-        }
-    })
+    if (user) {
+      io.to(user.room).emit('message', { user: 'admin', text: `${user.name} has left` })
+      /* Sending a message when a user leaves a room. */
+      io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room) });
+    }
+  })
 })
 
 // Define middleware here
@@ -75,24 +75,24 @@ app.use(express.json());
 // passport session called here
 
 app.use(
-    session({
-      secret: process.env.APP_SECRET || 'this is the default passphrase',
-      store: new MongoStore({ mongooseConnection: dbConnection }),
-      resave: false,
-      saveUninitialized: false
-    })
-  )
+  session({
+    secret: process.env.APP_SECRET || 'this is the default passphrase',
+    store: new MongoStore({ mongooseConnection: dbConnection }),
+    resave: false,
+    saveUninitialized: false
+  })
+)
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
-  }
+  app.use(express.static("client/build"));
+}
 
+app.use(require('cookie-parser')());
 app.use(passport.initialize())
 app.use(passport.session())
 
 //this is what I that i was working on that isnt on this file for passport. -Adrian
 // app.use(require('serve-static')(__dirname + '/../../public'));
-// app.use(require('cookie-parser')());
 // app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
 
