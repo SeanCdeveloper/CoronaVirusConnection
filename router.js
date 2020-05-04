@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const axios = require("axios");
-const passport = require("passport");
+const passport = require("./passport");
 require('dotenv').config();
 
 
@@ -22,6 +22,9 @@ router.get("/news", (req, res) => {
 
 router.post('/login',
     // passport.authenticate('local', { failureRedirect: '/login' }),
+
+    passport.authenticate('local'),
+
     function (req, res) {
         console.log("passport");
         res.redirect('/');

@@ -39,6 +39,7 @@ export default function LogInForm() {
      <Image src={Logo} centered/>
     <Header as='h1'>Login Page</Header>
     <Form onSubmit={handleFormSubmit}>
+    {/* <Form.Group widths='equal'> */}
       <Form.Field>
         <label>Username</label>
         <input
