@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import Logo from "../../images/cclogo.png";
-import axios from 'axios';
-import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
-
+// import axios from 'axios';
 
 export default function LogInForm() {
     // const [username, setUserName] = useState('');
@@ -34,7 +33,7 @@ export default function LogInForm() {
     }
 // axios.post('http://localhost:3001/api/signup', {email,password});
   return (
-    <Container>
+    <Container centered>
      <Image src={Logo} centered/>
     <Header as='h1'>Login Page</Header>
     <Form onSubmit={handleFormSubmit}>
