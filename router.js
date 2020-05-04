@@ -20,14 +20,18 @@ router.get("/news", (req, res) => {
 
 })
 
-router.post('/login',
-    passport.authenticate('local'),
-    function (req, res) {
-        console.log("passport");
-        res.redirect('/');
-    });
+/* Commented-Out 5/3/20. This has been expanded in a different File */
+
+// router.post('/login',
+//     passport.authenticate('local'),
+//     function (req, res) {
+//         console.log("passport");
+//         res.redirect('/');
+//     });
 
 module.exports = router;
+
+/* Commented-Out 5/3/20. This has been expanded in a different File */
 
 // Route I had for users -Adrian
 

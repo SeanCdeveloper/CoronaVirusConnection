@@ -10,9 +10,10 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 // const routes = require("./routes");
 const dbConnection = require('./db');
-const passport = require("passport");
-const mongoose = require("mongoose");
+// const passport = require("passport");
+// const mongoose = require("mongoose");
 require('dotenv').config();
+const cookieParser = require('cookie-parser');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users/users');
 
@@ -66,13 +67,6 @@ io.on('connection', (socket) => {
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: false
-//   })
-// )
-
-// passport session called here
 
 app.use(
   session({
@@ -87,21 +81,18 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use(require('cookie-parser')());
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(router);
+
+server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
+
+/* Added 5/3 */
+const userRouter = require('./routes/User-routes');
+app.use('/user',userRouter);
+
+app.use(cookieParser());
+
 
 //this is what I that i was working on that isnt on this file for passport. -Adrian
 // app.use(require('serve-static')(__dirname + '/../../public'));
 // app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 
-
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/coronaconnection2");
-
-// Add routes, both API and view
-// app.use(routes); 
-
-app.use(router);
-
-server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
