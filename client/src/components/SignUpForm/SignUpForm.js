@@ -9,8 +9,8 @@ import API from '../../utils/API';
 console.log(API);
 
 export default function LogInForm() {
-    // const [username, setUserName] = useState('');
-    const [email, setEmail] = useState('')
+    const [username, setUserName] = useState('');
+    // const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
 
     // const [formObject, setFormObject] = useState({});
@@ -19,19 +19,19 @@ export default function LogInForm() {
         e.preventDefault();  
         // console.log("Username is: " + username + ", and " + "Password is: " + password)
         var userData = {
-          email, 
+          username, 
           password
         }
         // console.log('++++++',userData);
-        if (!userData.email || !userData.password) {
+        if (!userData.username || !userData.password) {
           return;
         }
-        signUpUser(userData.email, userData.password);
+        signUpUser(userData.username, userData.password);
     };
 
      const signUpUser = () =>  {
-      console.log("------>",email,password);
-      const signInData = {email, password};
+      // console.log("------>",email,password);
+      const signInData = {username, password};
       console.log(signInData);
       API.register(signInData)
       .then(data=>console.log("register-return===>",data))
@@ -39,16 +39,8 @@ export default function LogInForm() {
       // }).catch(err => console.log(err))
       
     }
-    // axios.post('/login', {signInData}).then(data => {
-    // const signUpUser = () =>  {
-    //   console.log("------>",email,password);
-    //   const signInData = {email, password};
-    //   console.log(signInData);
-    //   axios.post('/login', {signInData}).then(data => {
-    //     console.log(data);
-    //   }).catch(err => console.log(err))
-// axios.post('http://localhost:3001/api/signup', {email,password});
-  return (
+
+    return (
     <Container centered>
      <Image src={Logo} centered/>
     <Header as='h1'>Sign-in Page</Header>
@@ -58,7 +50,7 @@ export default function LogInForm() {
         <input
                 type="text"
                 name="username"
-                onChange={(event) => setEmail(event.target.value)} />
+                onChange={(event) => setUserName(event.target.value)} />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
@@ -76,6 +68,40 @@ export default function LogInForm() {
     </Container>
   )
 };
+
+// const [username, setUserName] = useState('');
+// const [email, setEmail] = useState('')
+// const [password, setPassword] = useState('');
+
+// // const [formObject, setFormObject] = useState({});
+
+// const handleFormSubmit = e => {
+//     e.preventDefault();  
+//     // console.log("Username is: " + username + ", and " + "Password is: " + password)
+//     var userData = {
+//       email, 
+//       password
+//     }
+//     // console.log('++++++',userData);
+//     if (!userData.email || !userData.password) {
+//       return;
+//     }
+//     signUpUser(userData.email, userData.password);
+// };
+
+//  const signUpUser = () =>  {
+//   console.log("------>",email,password);
+//   const signInData = {email, password};
+//   console.log(signInData);
+//   API.register(signInData)
+//   .then(data=>console.log("register-return===>",data))
+//   .catch(err=>console.log(err))
+//   // }).catch(err => console.log(err))
+  
+// }
+
+
+
 
   /* <Button/> '/' changed from '/login' to '/' */
 
@@ -102,3 +128,13 @@ export default function LogInForm() {
 //       console.log("Test1",response)
 //     }).catch(err => console.log(err));
 // };
+
+    // axios.post('/login', {signInData}).then(data => {
+    // const signUpUser = () =>  {
+    //   console.log("------>",email,password);
+    //   const signInData = {email, password};
+    //   console.log(signInData);
+    //   axios.post('/login', {signInData}).then(data => {
+    //     console.log(data);
+    //   }).catch(err => console.log(err))
+// axios.post('http://localhost:3001/api/signup', {email,password});

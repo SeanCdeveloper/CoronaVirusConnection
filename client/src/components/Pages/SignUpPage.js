@@ -5,7 +5,6 @@ const SigninPage = () => {
     return (
         <div className='container'>
             <SignUpForm/>
-            Sign-Up Page
         </div>
     )
 }

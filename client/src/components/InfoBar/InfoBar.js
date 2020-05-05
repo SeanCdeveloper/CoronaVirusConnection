@@ -17,7 +17,7 @@ const InfoBar = ({room}) => {
              <h3>{room}</h3>
             </div>
             <div className='rightInnerContainer'>
-                <a onClick={handleClick}>
+                <a style={{cursor:"pointer", color:"black"}} onClick={handleClick}>
                     {/* <img src={closeIcon} alt='close icon'/> */}
                     Leave Chat
                 </a>
