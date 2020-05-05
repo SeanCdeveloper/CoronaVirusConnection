@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 import Logo from "../../images/cclogo.png";
 import axios from 'axios';
-// import API from '../utils/API';
+import "./SignUpForm.css"
+import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 import API from '../../utils/API';
 
 console.log(API);
@@ -40,8 +40,22 @@ export default function LogInForm() {
       
     }
 
+
     return (
     <Container centered>
+
+    // axios.post('/login', {signInData}).then(data => {
+    // const signUpUser = () =>  {
+    //   console.log("------>",email,password);
+    //   const signInData = {email, password};
+    //   console.log(signInData);
+    //   axios.post('/login', {signInData}).then(data => {
+    //     console.log(data);
+    //   }).catch(err => console.log(err))
+// axios.post('http://localhost:3001/api/signup', {email,password});
+  return (
+<Container className="outercontainer">
+
      <Image src={Logo} centered/>
     <Header as='h1'>Sign-in Page</Header>
     <Form onSubmit={handleFormSubmit}>
@@ -61,10 +75,11 @@ export default function LogInForm() {
                 />
       </Form.Field>
       {/* <Link to="/join"> */}
-      <Button type='submit'>Login</Button>
+      <Button className="button" type='submit' color='green' content='Green'>Sign up</Button>
       {/* </Link> */}
-      <Link to="/">Need to Sign-Up?</Link>
+      <Link to="/">Need to Login?</Link>
     </Form>
+    
     </Container>
   )
 };
