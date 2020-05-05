@@ -100,7 +100,30 @@ export default function LogInForm() {
   
 // }
 
+// const handleFormSubmit = e => {
+//     e.preventDefault();  
+//     // console.log("Username is: " + username + ", and " + "Password is: " + password)
+//     var userData = {
+//       email, 
+//       password
+//     }
+//     // console.log('++++++',userData);
+//     if (!userData.email || !userData.password) {
+//       return;
+//     }
+//     signUpUser(userData.email, userData.password);
+// };
 
+//  const signUpUser = () =>  {
+//   console.log("------>",email,password);
+//   const signInData = {email, password};
+//   console.log(signInData);
+//   API.register(signInData)
+//   .then(data=>console.log("register-return===>",data))
+//   .catch(err=>console.log(err))
+//   // }).catch(err => console.log(err))
+  
+// }
 
 
   /* <Button/> '/' changed from '/login' to '/' */
