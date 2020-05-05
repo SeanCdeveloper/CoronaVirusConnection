@@ -4,7 +4,9 @@ import Logo from "../../images/cclogo.png";
 import axios from 'axios';
 import "./SignUpForm.css"
 import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
+import API from '../../utils/API';
 
+console.log(API);
 
 export default function LogInForm() {
     // const [username, setUserName] = useState('');
@@ -31,11 +33,20 @@ export default function LogInForm() {
       console.log("------>",email,password);
       const signInData = {email, password};
       console.log(signInData);
-      axios.post('/login', {signInData}).then(data => {
-        console.log(data);
-      }).catch(err => console.log(err))
+      API.register(signInData)
+      .then(data=>console.log("register-return===>",data))
+      .catch(err=>console.log(err))
+      // }).catch(err => console.log(err))
       
     }
+    // axios.post('/login', {signInData}).then(data => {
+    // const signUpUser = () =>  {
+    //   console.log("------>",email,password);
+    //   const signInData = {email, password};
+    //   console.log(signInData);
+    //   axios.post('/login', {signInData}).then(data => {
+    //     console.log(data);
+    //   }).catch(err => console.log(err))
 // axios.post('http://localhost:3001/api/signup', {email,password});
   return (
 <Container className="outercontainer">
