@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-import { Container, Header} from 'semantic-ui-react'
+import { Container, Header, List, Icon } from 'semantic-ui-react'
 import axios from 'axios';
 require('dotenv').config();
 
@@ -11,7 +11,6 @@ function APIcall() {
   useEffect(() => {
     getNews()
   }, [])
-/* Make it a get('/news') */ 
   const apikey = process.env.API_KEY
   const getNews = () => {
     axios.get("/news")
@@ -23,19 +22,26 @@ function APIcall() {
       .catch(err => console.log(err));
   }
   return (
-    <Container>
+<Container>
       <Header as='h1' style={{textDecoration: "underline"}}>Current News</Header>
       <div className="NewsAreaWrap"></div>
 
       <Container fluid className="newsWell">
         {
           news.map((news,i) => (
+            <List>
             <div key={i}>
-              <h2>{news.title}</h2>
-              <p>{news.author}</p>
+            <List.Item>
+            <List.Content>
+            <List.Header><h2>{news.title}</h2></List.Header>
+            <List.Description><p>{news.author}</p>
               <p>{news.content}</p>
               <a href={news.url}>Read Article</a>
+              </List.Description>
+              </List.Content>
+            </List.Item>
             </div>
+            </List>
           )
           )}
         <Link to='/join'>Go back to Chat</Link>
