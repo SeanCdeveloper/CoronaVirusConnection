@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import Logo from "../../images/cclogo.png";
-import axios from 'axios';
+// import axios from 'axios';
 import "./SignUpForm.css"
 import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 import API from '../../utils/API';
 
-console.log(API);
-
 export default function LogInForm() {
     const [username, setUserName] = useState('');
-    // const [email, setEmail] = useState('')
     const [password, setPassword] = useState('');
 
-    // const [formObject, setFormObject] = useState({});
-
+    
     const handleFormSubmit = e => {
         e.preventDefault();  
         // console.log("Username is: " + username + ", and " + "Password is: " + password)
@@ -41,8 +37,8 @@ export default function LogInForm() {
     }
 
 
-    return (
-    <Container centered>
+
+    // <Container centered>
 
     // axios.post('/login', {signInData}).then(data => {
     // const signUpUser = () =>  {
@@ -54,8 +50,7 @@ export default function LogInForm() {
     //   }).catch(err => console.log(err))
 // axios.post('http://localhost:3001/api/signup', {email,password});
   return (
-<Container className="outercontainer">
-
+ <Container className="outercontainer"> 
      <Image src={Logo} centered/>
     <Header as='h1'>Sign-in Page</Header>
     <Form onSubmit={handleFormSubmit}>
