@@ -7,13 +7,14 @@ export default {
             method : "post",
             body : JSON.stringify(user),
             headers : {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                "Access-Control-Allow-Origin": "*",
             }
         }).then(res => {
             if(res.status !== 401)
                 return res.json().then(data => data);
             else
-                return { isAuthenticated : false, user : {username : ""}};
+                return { isAuthenticated : false, user : {username : "", password:""}};
         })
     },
     register : user =>{
@@ -22,7 +23,8 @@ export default {
             method : "post",
             body : JSON.stringify(user),
             headers : {
-                'Content-Type' : 'application/json'
+                'Content-Type' : 'application/json',
+                "Access-Control-Allow-Origin": "*",
             }
         }).then(res => res.json())
           .then(data => data);
@@ -38,7 +40,8 @@ export default {
                     if(res.status !== 401)
                         return res.json().then(data => data);
                     else
-                        return { isAuthenticated : false, user : {username : ""}};
+                        return { isAuthenticated : false, user : {username : "", password:""}};
                 });
     }
 }
+

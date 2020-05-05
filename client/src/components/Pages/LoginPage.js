@@ -5,7 +5,6 @@ const LoginPage = () => {
         return (
             <div>
                  <LogInForm/>
-                 Log-in Page
             </div>
         )
 }

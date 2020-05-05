@@ -7,8 +7,7 @@ import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 import API from '../../utils/API';
 
 export default function LogInForm() {
-    // const [username, setUserName] = useState('');
-    const [email, setEmail] = useState('')
+    const [username, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
     // const [formObject, setFormObject] = useState({});
@@ -17,19 +16,19 @@ export default function LogInForm() {
         e.preventDefault();  
         // console.log("Username is: " + username + ", and " + "Password is: " + password)
         var userData = {
-          email, 
+          username, 
           password
         }
         // console.log('++++++',userData);
-        if (!userData.email || !userData.password) {
+        if (!userData.username || !userData.password) {
           return;
         }
-        signUpUser(userData.email, userData.password);
+        signUpUser(userData.username, userData.password);
     };
 
      const signUpUser = () =>  {
-      console.log("------>",email,password);
-      const signInData = {email, password};
+      // console.log("------>",email,password);
+      const signInData = {username, password};
       console.log(signInData);
       API.login(signInData)
       .then(data=>console.log("register-return===>",data))
@@ -47,7 +46,7 @@ export default function LogInForm() {
         <input
                 type="text"
                 name="username"
-                onChange={(event) => setEmail(event.target.value)} />
+                onChange={(event) => setUserName(event.target.value)} />
       </Form.Field>
       <Form.Field>
         <label>Password</label>
@@ -57,14 +56,51 @@ export default function LogInForm() {
                 onChange={(event) => setPassword(event.target.value)}
                 />
       </Form.Field>
+
+      {/* <Link to="/join"> */}
+      <Button type='submit'>Login</Button>
+      {/* </Link> */}
+
       <Link to="/join">
       <Button className="button" type='submit' color='green' content='Green'>Login</Button>
       </Link>
+
       <Link to="/signup">Need to Sign-Up?</Link>
     </Form>
     </Container>
   )
 };
+
+
+// export default function LogInForm() {
+//   // const [username, setUserName] = useState('');
+//   const [email, setEmail] = useState('')
+//   const [password, setPassword] = useState('');
+
+//   // const [formObject, setFormObject] = useState({});
+
+//   const handleFormSubmit = e => {
+//       e.preventDefault();  
+//       // console.log("Username is: " + username + ", and " + "Password is: " + password)
+//       var userData = {
+//         email, 
+//         password
+//       }
+//       // console.log('++++++',userData);
+//       if (!userData.email || !userData.password) {
+//         return;
+//       }
+//       signUpUser(userData.email, userData.password);
+//   };
+
+//    const signUpUser = () =>  {
+//     console.log("------>",email,password);
+//     const signInData = {email, password};
+//     console.log(signInData);
+//     API.login(signInData)
+//     .then(data=>console.log("register-return===>",data))
+//     .catch(err=>console.log(err))
+//   }
 
 /* <Button/> '/' changed to '/join' above.  */
 
