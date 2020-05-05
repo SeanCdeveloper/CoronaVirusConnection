@@ -67,11 +67,6 @@ export default function LogInForm() {
                 onChange={(event) => setPassword(event.target.value)}
                 />
       </Form.Field>
-
-
-      <Button type='submit'>Login</Button>
-
-
       <Link to="/join">
       <Button className="button" type='submit' color='green' content='Green'>Login</Button>
       </Link>
