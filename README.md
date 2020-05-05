@@ -22,6 +22,6 @@ Once users are authenticated, they are able to log into the chat application, wh
 + Mongoose
 + ESLint
 
-
-
 ## Link to Deployed App on Heroku
+! [! ]
+
