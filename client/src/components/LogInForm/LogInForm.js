@@ -5,6 +5,7 @@ import axios from 'axios';
 import "./LogInForm.css"
 import { Container, Header, Button, Form, Image } from 'semantic-ui-react';
 import API from '../../utils/API';
+import { useHistory } from "react-router-dom";
 
 export default function LogInForm() {
     const [username, setUserName] = useState('');
@@ -26,14 +27,24 @@ export default function LogInForm() {
         signUpUser(userData.username, userData.password);
     };
 
-     const signUpUser = () =>  {
-      // console.log("------>",email,password);
-      const signInData = {username, password};
-      console.log(signInData);
-      API.login(signInData)
-      .then(data=>console.log("register-return===>",data))
-      .catch(err=>console.log(err))
-    }
+    let history = useHistory();
+    const signUpUser = () =>  {
+     // console.log("------>",email,password);
+     const signInData = {username, password};
+    //  console.log(signInData);
+     API.login(signInData)
+     .then((data) => {
+       console.log(data.isAuthenticated);
+       if (data.isAuthenticated === true) {
+       history.push("/join");
+       console.log(data);
+       } else {
+         alert("Your username and password are incorrect.")
+         return
+       }
+     })
+     .catch(err=>console.log(err))
+   }
 // axios.post('http://localhost:3001/api/signup', {email,password});
 // axios.post('http://localhost:3000/api/login', {signInData})
   return (
@@ -57,9 +68,9 @@ export default function LogInForm() {
                 />
       </Form.Field>
 
-      {/* <Link to="/join"> */}
+
       <Button type='submit'>Login</Button>
-      {/* </Link> */}
+
 
       <Link to="/join">
       <Button className="button" type='submit' color='green' content='Green'>Login</Button>
