@@ -1,11 +1,9 @@
-Chat.css
-
 .outerContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: rgb(8, 58, 31);
+    background-color:#1A1A1D;
   }
   
   .container {
