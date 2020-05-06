@@ -17,7 +17,7 @@ const Join = () => {
                 onChange={(event) => setName(event.target.value)}
                 /></div>
                 <div><input
-                    placeholder='Room'
+                    placeholder='Zip code'
                     className='joinInput'
                     type='text'
                 onChange={(event) => setRoom(event.target.value)}
