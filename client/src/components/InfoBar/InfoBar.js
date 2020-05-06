@@ -13,10 +13,10 @@ const InfoBar = ({room}) => {
     return (
         <div className="infoBar">
             <div className="leftInnerContainer">
-             <h3>{room}</h3>
+             <h3 style={{color: "#ffa62b"}}>{room}</h3>
             </div>
             <div className='rightInnerContainer'>
-                <a style={{cursor:"pointer", color:"black"}} onClick={handleClick}>
+                <a style={{cursor:"pointer", color:"#ffa62b"}} onClick={handleClick}>
                     Leave Chat
                 </a>
             </div>
