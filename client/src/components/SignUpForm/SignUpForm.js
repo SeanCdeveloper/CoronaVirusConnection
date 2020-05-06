@@ -61,7 +61,7 @@ export default function LogInForm() {
 
      <Button className="button" type='submit' color='green' content='Green'>Login</Button>
 
-     <Link to="/">Need to Sign-Up?</Link>
+     <Link to="/">Need to Log In?</Link>
    </Form>
    </Container>
   )

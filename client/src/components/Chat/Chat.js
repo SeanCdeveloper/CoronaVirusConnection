@@ -55,7 +55,7 @@ const Chat = ({location}) => {
         <div className='outerContainer'>
             <div className='container'>
                 <Link to="/apicall">
-                <Button className="button" type="submit" color="yellow" content="Green">Click Here for Covid-19 News</Button>
+                <Button style={{background:"#ffa62b"}} className="button" type="submit" content="Green">Click Here for Covid-19 News</Button>
                 </Link>
                 <InfoBar room={room}/>
                 <Messages messages={messages} name={name}/>
@@ -67,3 +67,4 @@ const Chat = ({location}) => {
 }
 
 export default Chat;
+
