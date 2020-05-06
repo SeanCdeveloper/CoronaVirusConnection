@@ -13,12 +13,10 @@ const InfoBar = ({room}) => {
     return (
         <div className="infoBar">
             <div className="leftInnerContainer">
-                {/* <img className='onlineIcon' src={onlineIcon} alt='online image'/> */}
              <h3>{room}</h3>
             </div>
             <div className='rightInnerContainer'>
                 <a style={{cursor:"pointer", color:"black"}} onClick={handleClick}>
-                    {/* <img src={closeIcon} alt='close icon'/> */}
                     Leave Chat
                 </a>
             </div>
@@ -27,4 +25,3 @@ const InfoBar = ({room}) => {
     }
 export default InfoBar;
 
-/* <a> changed from '/' to '/join' */

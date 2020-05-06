@@ -6,7 +6,5 @@ const Logo = () => {
    return <Image src= {cclogo} size="small" wrapped/>
 };
 
-// console.log(cclogo); // /logo.84287d09.png
-
 export default Logo;
 
