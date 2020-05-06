@@ -52,13 +52,4 @@ function APIcall() {
 
 export default APIcall;
 
-  // /*
-
-  // Organize by ip address to location.
-  // How to find a person's IP address?
-  // Check to see how zip-code works, too.
-  // Four different mini-rooms to go into and communicate.
-
-  // */
-
-  // style={{ border: "1px solid black", height: "200px", margin: "0 100px 0 100px" }}
+ 

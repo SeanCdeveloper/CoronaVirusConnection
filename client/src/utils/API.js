@@ -1,5 +1,3 @@
-// import axios from "axios";
-
 export default {
     login : user =>{
         console.log(user);
