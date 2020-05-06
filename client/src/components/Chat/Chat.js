@@ -5,6 +5,8 @@ import InfoBar from '../InfoBar/InfoBar'
 import Input from '../Input/Input'
 import Messages from '../Messages/Messages'
 import './Chat.css'
+import {Link} from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 
 let socket;
 
@@ -52,6 +54,9 @@ const Chat = ({location}) => {
     return(
         <div className='outerContainer'>
             <div className='container'>
+                <Link to="/apicall">
+                <Button className="button" type="submit" color="yellow" content="Green">Click Here for Covid-19 News</Button>
+                </Link>
                 <InfoBar room={room}/>
                 <Messages messages={messages} name={name}/>
                 <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>

@@ -39,7 +39,7 @@ export default function LogInForm() {
     }
 
   return (
-    <Container style={{width: "100%"}} className="container2">
+    <Container className="container2">
     <Image src={Logo} centered/>
    <Header as='h1'>Sign-in Page</Header>
    <Form onSubmit={handleFormSubmit}>
@@ -59,13 +59,7 @@ export default function LogInForm() {
                />
      </Form.Field>
 
-
-     <Button type='submit'>Login</Button>
-
-
-     {/* <Link to="/join"> */}
      <Button className="button" type='submit' color='green' content='Green'>Login</Button>
-     {/* </Link> */}
 
      <Link to="/">Need to Sign-Up?</Link>
    </Form>
